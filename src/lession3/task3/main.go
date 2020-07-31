@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"lession3/task3/structs"
+	"structs"
 )
 
 func main() {

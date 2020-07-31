@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/davecgh/go-spew/spew"
-	"lession3/task4/structs"
+	"structs"
 )
 
 func main() {
