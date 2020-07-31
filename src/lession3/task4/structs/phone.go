@@ -13,11 +13,16 @@ type ContactBook struct {
 }
 
 func (c *ContactBook) AddContact(name, address string, phone int) {
-
 	c.contacts[name] = &Contact{
 		Name:    name,
 		Address: address,
 		Phones:  []int{phone},
 	}
 	//TODO: save JSON to file. Have not enough time now (
+}
+
+func GetNewContactBook() *ContactBook {
+	c := &ContactBook{}
+	c.contacts = make(map[string]*Contact)
+	return c
 }
