@@ -1,5 +1,11 @@
 package structs
 
+import (
+	"encoding/json"
+	"io/ioutil"
+	"log"
+)
+
 type Contact struct {
 	Name    string `json:"name"`
 	Address string `json:"address"`
@@ -18,7 +24,16 @@ func (c *ContactBook) AddContact(name, address string, phone int) {
 		Address: address,
 		Phones:  []int{phone},
 	}
-	//TODO: save JSON to file. Have not enough time now (
+
+	j, err:= json.Marshal(c.contacts)
+	if err != nil {
+		log.Fatal("Can not marshal the structure")
+	}
+
+	err = ioutil.WriteFile("phonebook.json", j, 0644)
+	if err != nil {
+		log.Fatal("Can't write to file")
+	}
 }
 
 func GetNewContactBook() *ContactBook {
